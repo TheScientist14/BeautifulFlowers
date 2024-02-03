@@ -6,6 +6,10 @@ using UnityEngine;
 [Serializable]
 public class Flower
 {
+	public int Seed;
+
+	// Lengths are in mm
+
 	[Header("Stem")]
 	public Range<float> StemHeightRange;
 	public Range<float> StemRadiusRange;
@@ -16,7 +20,6 @@ public class Flower
 	public Range<int> LeafCountRange;
 	public Color LeavesAverageColor;
 	public Sprite LeavesTexture;
-	public Range<float> LeavesCurvatureRange;
 	public Range<float> LeavesLengthRange;
 	public Range<float> LeavesWidthRange;
 
@@ -28,9 +31,7 @@ public class Flower
 	public Range<float> PetalsWidthRange;
 	public Range<int> PetalsLevelCountRange;
 
-	[Header("Pistils")]
-	public Range<int> PistilCountRange;
-	public Range<float> PistilsLengthRange;
+	[Header("Capitulum")]
 	public Range<float> CapitulumRadiusRange;
-	public Range<float> PistilsAverageColor;
+	public Color CapitulumAverageColor;
 }
