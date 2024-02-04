@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public struct FlowerInstance
+public class FlowerInstance
 {
 	// Lengths are in mm
 
