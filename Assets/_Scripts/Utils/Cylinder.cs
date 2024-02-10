@@ -6,7 +6,7 @@ public class Cylinder : MonoBehaviour
 {
 	[SerializeField] MeshRenderer m_Mesh;
 	[SerializeField] Transform m_JointTransform;
-	[SerializeField] float m_DistProportionJoint = 0.95f;
+	[SerializeField] float m_DistProportionJoint = 1f;
 
 	public void SetHeight(float iHeight)
 	{
@@ -25,8 +25,8 @@ public class Cylinder : MonoBehaviour
 	public void SetRadius(float iRadius)
 	{
 		Vector3 scale = m_Mesh.transform.localScale;
-		scale.x = iRadius;
-		scale.z = iRadius;
+		scale.x = iRadius * 2;
+		scale.z = iRadius * 2;
 		m_Mesh.transform.localScale = scale;
 	}
 

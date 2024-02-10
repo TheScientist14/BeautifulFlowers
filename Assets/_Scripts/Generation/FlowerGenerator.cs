@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class FlowerGenerator : MonoBehaviour
@@ -14,22 +15,93 @@ public class FlowerGenerator : MonoBehaviour
 
 	[SerializeField] private Vector3 colTol = new Vector3(0.05f, 0.05f, 0.1f);
 
-	private FlowerInstance m_FlowerInstance = null;
-	private List<Cylinder> m_Stems;
-	private List<Plane> m_Leaves;
+	[SerializeField] private Flower m_Flower;
+	[SerializeField] private FlowerInstance m_FlowerInstance;
+
+	private List<Cylinder> m_Stems = new List<Cylinder>();
+	private List<Plane> m_Leaves = new List<Plane>();
 	private Plane m_Capitulum = null;
-	private List<Plane> m_Petals;
+	private List<Plane> m_Petals = new List<Plane>();
+
+	void Start()
+	{
+		if(m_Flower == null)
+			m_Flower = new Flower();
+
+		GenerateSubject();
+	}
 
 	public void GenerateSubject(Flower iFlower)
 	{
-		Random.InitState(iFlower.Seed);
+		m_Flower = iFlower;
+		GenerateSubject();
+	}
+
+	[Button]
+	public void GenerateSubject()
+	{
+		Random.InitState((int)(Time.time * 1000));
+		m_Flower.Seed = Random.Range(int.MinValue, int.MaxValue);
+		_GenerateSubject();
+	}
+
+	[Button]
+	private void _GenerateSubject()
+	{
+		Random.InitState(m_Flower.Seed);
 		m_FlowerInstance = new FlowerInstance();
 
-		m_FlowerInstance.StemHeight = iFlower.StemHeightRange.RandVal();
-		m_FlowerInstance.StemRadius = iFlower.StemRadiusRange.RandVal();
-		m_FlowerInstance.StemColor = GetRandomColorVariant(iFlower.StemAverageColor);
+		m_FlowerInstance.StemHeight = m_Flower.StemHeightRange.RandVal();
+		m_FlowerInstance.StemRadius = m_Flower.StemRadiusRange.RandVal();
+		m_FlowerInstance.StemColor = GetRandomColorVariant(m_Flower.StemAverageColor);
 
+		m_FlowerInstance.LeavesTexture = m_Flower.LeavesTexture;
+		int nbLeaves = m_Flower.LeafCountRange.RandVal();
+		for(int leafIdx = 0; leafIdx < nbLeaves; leafIdx++)
+		{
+			FlowerInstance.Leaf leaf = new FlowerInstance.Leaf();
+			leaf.Length = m_Flower.LeavesLengthRange.RandVal();
+			leaf.Width = m_Flower.LeavesWidthRange.RandVal();
+			leaf.Color = GetRandomColorVariant(m_Flower.LeavesAverageColor);
+			leaf.Position = m_Flower.LeavesPositionRange.RandVal();
+			leaf.RotationAroundStem = Random.Range(0f, 360f);
 
+			m_FlowerInstance.Leaves.Add(leaf);
+		}
+
+		m_FlowerInstance.CapitulumColor = GetRandomColorVariant(m_Flower.CapitulumAverageColor);
+		m_FlowerInstance.CapitulumRadius = m_Flower.CapitulumRadiusRange.RandVal();
+
+		m_FlowerInstance.PetalsTexture = m_Flower.PetalsTexture;
+		int nbPetals = m_Flower.PetalCountRange.RandVal();
+		int nbPetalLevels = m_Flower.PetalsLevelCountRange.RandVal();
+		int nbPetalsPerLevel = (nbPetalLevels != 0) ? (nbPetals - 1) / nbPetalLevels + 1 : 0;
+		int totPetals = 0;
+
+		// magic values
+		const float petalLevelAngleAverage = 5f;
+		const float petalLevelAngleDifference = 10f;
+		float minLevelAngle = petalLevelAngleAverage - petalLevelAngleDifference * (nbPetalLevels - 1) * 0.5f;
+		float rotLevelOffset = 360f / nbPetals;
+
+		for(int petalLevelIdx = 0; petalLevelIdx < nbPetalLevels; petalLevelIdx++)
+		{
+			m_FlowerInstance.PetalLevelAngles.Add(minLevelAngle + petalLevelAngleDifference * petalLevelIdx + Random.Range(-1f, 1f));
+
+			int nbPetalsLeft = Mathf.Min(nbPetals - totPetals, nbPetalsPerLevel);
+			float rotationIncr = (nbPetalsLeft != 0) ? 360f / nbPetalsLeft : 0;
+			for(int petalIdx = 0; petalIdx < nbPetalsLeft; petalIdx++, totPetals++)
+			{
+				FlowerInstance.Petal petal = new FlowerInstance.Petal();
+				petal.Length = m_Flower.PetalsLengthRange.RandVal();
+				petal.Width = m_Flower.PetalsWidthRange.RandVal();
+				petal.Color = GetRandomColorVariant(m_Flower.PetalsAverageColor);
+				petal.LevelIndex = petalLevelIdx;
+				petal.RotationAroundCapitulum = petalIdx * rotationIncr + rotLevelOffset * petalLevelIdx + Random.Range(-2f, 2f);
+
+				m_FlowerInstance.Petals.Add(petal);
+			}
+		}
 
 		Render();
 	}
@@ -40,6 +112,10 @@ public class FlowerGenerator : MonoBehaviour
 		Render();
 	}
 
+	const float s_LeavesOffsetTol = 0.6f;
+	const float s_PetalsOffsetTol = 0.8f;
+
+	[Button]
 	public void Render()
 	{
 		Clear();
@@ -55,32 +131,34 @@ public class FlowerGenerator : MonoBehaviour
 		foreach(FlowerInstance.Leaf leafData in m_FlowerInstance.Leaves)
 		{
 			Plane leaf = Instantiate(m_SidePlanePrefab, stemJoint);
-			leaf.transform.localPosition = new Vector3(-m_FlowerInstance.StemRadius, (1 - leafData.Position) * m_FlowerInstance.StemHeight, 0);
+			leaf.transform.localPosition = (leafData.Position - 1) * m_FlowerInstance.StemHeight * Vector3.up;
 			leaf.transform.localRotation = Quaternion.AngleAxis(leafData.RotationAroundStem, Vector3.up);
+			leaf.SetOffset(m_FlowerInstance.StemRadius * s_LeavesOffsetTol);
 			leaf.SetLength(leafData.Length);
 			leaf.SetWidth(leafData.Width);
 			leaf.SetMaterial(m_LeafMat);
-			leaf.SetTexture(m_FlowerInstance.LeavesTexture.texture);
+			leaf.SetTexture(m_FlowerInstance.LeavesTexture);
 			leaf.SetColor(leafData.Color);
 
 			m_Leaves.Add(leaf);
 		}
 
 		m_Capitulum = Instantiate(m_CenterPlanePrefab, stemJoint);
-		m_Capitulum.SetLength(m_FlowerInstance.CapitulumRadius);
-		m_Capitulum.SetWidth(m_FlowerInstance.CapitulumRadius);
+		m_Capitulum.SetLength(m_FlowerInstance.CapitulumRadius * 2);
+		m_Capitulum.SetWidth(m_FlowerInstance.CapitulumRadius * 2);
 		m_Capitulum.SetMaterial(m_CapitulumMat);
 		m_Capitulum.SetColor(m_FlowerInstance.CapitulumColor);
 
 		foreach(FlowerInstance.Petal petalData in m_FlowerInstance.Petals)
 		{
 			Plane petal = Instantiate(m_SidePlanePrefab, stemJoint);
-			petal.transform.localPosition = new Vector3(-m_FlowerInstance.CapitulumRadius, 0, 0);
-			petal.transform.localRotation = Quaternion.Euler(0, petalData.RotationAroundCapitulum, m_FlowerInstance.PetalLevelAngles[petalData.LevelIndex]);
+			petal.transform.localRotation = Quaternion.AngleAxis(petalData.RotationAroundCapitulum, Vector3.up);
+			petal.SetOffset(m_FlowerInstance.CapitulumRadius * s_PetalsOffsetTol);
+			petal.SetRotation(Quaternion.Euler(0, 0, m_FlowerInstance.PetalLevelAngles[petalData.LevelIndex]));
 			petal.SetLength(petalData.Length);
 			petal.SetWidth(petalData.Width);
 			petal.SetMaterial(m_PetalMat);
-			petal.SetTexture(m_FlowerInstance.PetalsTexture.texture);
+			petal.SetTexture(m_FlowerInstance.PetalsTexture);
 			petal.SetColor(petalData.Color);
 
 			m_Petals.Add(petal);

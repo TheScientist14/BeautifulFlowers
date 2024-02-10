@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Mesh: {fileID: 6751628519866455764}
   m_JointTransform: {fileID: 8171486898855602320}
-  m_DistProportionJoint: 0.95
+  m_DistProportionJoint: 1.001
 --- !u!1 &1616817518898640992
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 1616817518898640992}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.95, z: 0}
+  m_LocalPosition: {x: 0, y: 1.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
