@@ -25,7 +25,7 @@ public class FlowerInstance
 
 	[Header("Leaves")]
 	public List<Leaf> Leaves = new List<Leaf>();
-	public Texture LeavesTexture;
+	public Material LeavesMaterial;
 
 	[Serializable]
 	public struct Petal
@@ -39,7 +39,7 @@ public class FlowerInstance
 
 	[Header("Petals")]
 	public List<Petal> Petals = new List<Petal>();
-	public Texture PetalsTexture;
+	public Material PetalsMaterial;
 	public List<float> PetalLevelAngles = new List<float>();
 	public float CapitulumRadius;
 	public Color CapitulumColor;

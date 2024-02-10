@@ -19,14 +19,14 @@ public class Flower
 	[Header("Leaves")]
 	public Range<int> LeafCountRange;
 	public Color LeavesAverageColor;
-	public Texture LeavesTexture;
+	public Material LeavesMaterial;
 	public Range<float> LeavesLengthRange;
 	public Range<float> LeavesWidthRange;
 
 	[Header("Petals")]
 	public Range<int> PetalCountRange;
 	public Color PetalsAverageColor;
-	public Texture PetalsTexture;
+	public Material PetalsMaterial;
 	public Range<float> PetalsLengthRange;
 	public Range<float> PetalsWidthRange;
 	public Range<int> PetalsLevelCountRange;

@@ -59,12 +59,6 @@ public class Plane : MonoBehaviour
 		m_BackFaceMesh.material = iMaterial;
 	}
 
-	public void SetTexture(Texture iTexture)
-	{
-		m_Mesh.material.mainTexture = iTexture;
-		m_BackFaceMesh.material.mainTexture = iTexture;
-	}
-
 	public void SetColor(Color iColor)
 	{
 		m_Mesh.material.color = iColor;
