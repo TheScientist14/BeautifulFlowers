@@ -23,20 +23,22 @@ public class FlowerGenerator : MonoBehaviour
 	[SerializeField] private float s_PetalsOffsetTol = 0.8f;
 	[SerializeField] private Vector3 s_RotationTol = new Vector3(5, 5, 5);
 
-	[SerializeField] private Flower m_Flower;
+	[SerializeField] private Flower m_Flower = null;
 	[SerializeField] private FlowerInstance m_FlowerInstance;
+	private int m_Seed;
 
 	private List<Cylinder> m_Stems = new List<Cylinder>();
 	private List<Plane> m_Leaves = new List<Plane>();
 	private Plane m_Capitulum = null;
 	private List<Plane> m_Petals = new List<Plane>();
 
+	[Range(0, 1)]
 	[SerializeField] public float m_WindStrength = 0.3f;
 	[SerializeField] private float m_WindSpeed = 0.7f;
 	[SerializeField] private float m_WindMaxAmplitudeModification = 70;
 	private float m_WindMaxAmplitudeModificationPerStem;
 
-	[Range(0,1)]
+	[Range(0, 1)]
 	[SerializeField] private float m_BlossomingState = 1; // 0: not blossomed, 1: fully blossomed
 	[SerializeField] private Range<float> m_BlossomingRotationRange;
 
@@ -50,10 +52,8 @@ public class FlowerGenerator : MonoBehaviour
 
 	void Start()
 	{
-		if(m_Flower == null)
-			m_Flower = new Flower();
-
-		GenerateSubject();
+		if(m_Flower != null)
+			GenerateSubject();
 	}
 
 	public void GenerateSubject(Flower iFlower)
@@ -66,14 +66,14 @@ public class FlowerGenerator : MonoBehaviour
 	public void GenerateSubject()
 	{
 		Random.InitState(DateTime.Now.Millisecond);
-		m_Flower.Seed = Random.Range(int.MinValue, int.MaxValue);
+		m_Seed = Random.Range(int.MinValue, int.MaxValue);
 		_GenerateSubject();
 	}
 
 	[Button]
 	private void _GenerateSubject()
 	{
-		Random.InitState(m_Flower.Seed);
+		Random.InitState(m_Seed);
 		m_FlowerInstance = new FlowerInstance();
 
 		m_FlowerInstance.WindOffset = Random.Range(-1000f, 1000f);
@@ -144,14 +144,8 @@ public class FlowerGenerator : MonoBehaviour
 		Render();
 	}
 
-	public void Render(FlowerInstance iFlowerInstance)
-	{
-		m_FlowerInstance = iFlowerInstance;
-		Render();
-	}
-
 	[Button]
-	public void Render()
+	private void Render()
 	{
 		Clear();
 

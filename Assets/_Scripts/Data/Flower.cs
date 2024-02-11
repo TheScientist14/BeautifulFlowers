@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class Flower
+[CreateAssetMenu(fileName = "FlowerSpecies", menuName = "ScriptableObjects/FlowerSpecies")]
+public class Flower : ScriptableObject
 {
-	public int Seed;
-
 	// Lengths are in cm
 
 	[Header("Stem")]

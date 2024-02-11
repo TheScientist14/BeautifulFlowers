@@ -137,7 +137,7 @@ MonoBehaviour:
   s_StemsOffsetTol: 0.5
   s_LeavesOffsetTol: 0.6
   s_PetalsOffsetTol: 0.8
-  s_RotationTol: {x: 2, y: 5, z: 2}
+  s_RotationTol: {x: 10, y: 5, z: 10}
   m_Flower:
     Seed: 0
     StemHeightRange:
