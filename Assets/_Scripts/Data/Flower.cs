@@ -8,7 +8,7 @@ public class Flower
 {
 	public int Seed;
 
-	// Lengths are in mm
+	// Lengths are in cm
 
 	[Header("Stem")]
 	public Range<float> StemHeightRange;

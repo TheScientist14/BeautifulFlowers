@@ -6,18 +6,28 @@ using UnityEngine;
 [Serializable]
 public class FlowerInstance
 {
-	// Lengths are in mm
+	public float WindOffset;
+
+	// Lengths are in cm
+
+	[Serializable]
+	public struct StemPart
+	{
+		public Quaternion Rotation;
+	}
 
 	[Header("Stem")]
-	public float StemHeight;
+	public float TotalStemHeight;
 	public float StemRadius;
 	public Color StemColor;
+	public List<StemPart> StemParts = new List<StemPart>();
 
 	[Serializable]
 	public struct Leaf
 	{
 		public float Position;
 		public float RotationAroundStem;
+		public Quaternion Rotation;
 		public Color Color;
 		public float Length;
 		public float Width;
@@ -30,8 +40,9 @@ public class FlowerInstance
 	[Serializable]
 	public struct Petal
 	{
-		public float RotationAroundCapitulum;
 		public int LevelIndex;
+		public float RotationAroundCapitulum;
+		public Quaternion Rotation;
 		public Color Color;
 		public float Length;
 		public float Width;
