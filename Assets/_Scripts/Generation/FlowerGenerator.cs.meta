@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 81c9e9ff7cb9f1740bee2e6b30e827b6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_UpCylinderPrefab: {fileID: 8355898864905803873, guid: d4a53be88dbda104f8afc1d36b9c31d1, type: 3}
+  - m_SidePlanePrefab: {fileID: 7838312742820734333, guid: 5eb72b720d8d19746ad278f44f557a34, type: 3}
+  - m_CenterPlanePrefab: {fileID: 759740503423241086, guid: 0b0563dfc0608af48b2b6dbd65f1d046, type: 3}
+  - m_StemMat: {fileID: 2100000, guid: c3e5261cc3a475949b2e5b713e179fda, type: 2}
+  - m_LeafMat: {fileID: 2100000, guid: 9f9a6f5a6eb446a40a4fa4c72b05bb07, type: 2}
+  - m_PetalMat: {fileID: 2100000, guid: 99a9170c9833ca84ba96c92e8fb72b00, type: 2}
+  - m_CapitulumMat: {fileID: 2100000, guid: d2cfe80c2a61d734da0ab22adaee0565, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

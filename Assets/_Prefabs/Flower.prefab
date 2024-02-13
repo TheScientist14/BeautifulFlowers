@@ -1,0 +1,287 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1498558121586127287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8682967354123566058}
+  - component: {fileID: 2976012455328366680}
+  - component: {fileID: 487085000495141987}
+  m_Layer: 0
+  m_Name: Flower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8682967354123566058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498558121586127287}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1669778096634524489}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2976012455328366680
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498558121586127287}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &487085000495141987
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498558121586127287}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: fedc75da63b32e249bccd7450cd29351, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7934718508679924703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3564121177546906650}
+  - component: {fileID: 6088682733873068684}
+  m_Layer: 0
+  m_Name: FlowerGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3564121177546906650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934718508679924703}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.41388002, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1669778096634524489}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6088682733873068684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934718508679924703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c9e9ff7cb9f1740bee2e6b30e827b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UpCylinderPrefab: {fileID: 8355898864905803873, guid: d4a53be88dbda104f8afc1d36b9c31d1, type: 3}
+  m_SidePlanePrefab: {fileID: 7838312742820734333, guid: 5eb72b720d8d19746ad278f44f557a34, type: 3}
+  m_CenterPlanePrefab: {fileID: 759740503423241086, guid: 0b0563dfc0608af48b2b6dbd65f1d046, type: 3}
+  m_StemMat: {fileID: 2100000, guid: c3e5261cc3a475949b2e5b713e179fda, type: 2}
+  m_CapitulumMat: {fileID: 2100000, guid: d2cfe80c2a61d734da0ab22adaee0565, type: 2}
+  s_ColTol: {x: 0.05, y: 0.05, z: 0.1}
+  s_StemsOffsetTol: 0.5
+  s_LeavesOffsetTol: 0.6
+  s_PetalsOffsetTol: 0.8
+  s_RotationTol: {x: 10, y: 5, z: 10}
+  m_Flower:
+    Seed: 0
+    StemHeightRange:
+      Min: 4
+      Max: 5
+    StemRadiusRange:
+      Min: 0.06
+      Max: 0.08
+    StemAverageColor: {r: 0.1882353, g: 0.54901963, b: 0.08627451, a: 1}
+    LeavesPositionRange:
+      Min: 0.2
+      Max: 0.9
+    LeafCountRange:
+      Min: 20
+      Max: 30
+    LeavesAverageColor: {r: 0.26599026, g: 0.6301887, b: 0.07490919, a: 0}
+    LeavesMaterial: {fileID: 2100000, guid: 4ed53ccd7cde23d4882812b14dcfdde3, type: 2}
+    LeavesLengthRange:
+      Min: 1
+      Max: 1.5
+    LeavesWidthRange:
+      Min: 0.4
+      Max: 0.6
+    PetalCountRange:
+      Min: 20
+      Max: 20
+    PetalsAverageColor: {r: 0.82641506, g: 0, b: 0, a: 0}
+    PetalsMaterial: {fileID: 2100000, guid: 60ec27e32bf901d4d88b63aa9555bb38, type: 2}
+    PetalsLengthRange:
+      Min: 0.4
+      Max: 0.5
+    PetalsWidthRange:
+      Min: 0.3
+      Max: 0.4
+    PetalsLevelCountRange:
+      Min: 2
+      Max: 2
+    CapitulumRadiusRange:
+      Min: 0.4
+      Max: 0.5
+    CapitulumAverageColor: {r: 0.93207544, g: 0.78745794, b: 0.16003558, a: 0}
+  m_FlowerInstance:
+    WindOffset: 0
+    TotalStemHeight: 0
+    StemRadius: 0
+    StemColor: {r: 0, g: 0, b: 0, a: 0}
+    StemParts: []
+    Leaves: []
+    LeavesMaterial: {fileID: 0}
+    Petals: []
+    PetalsMaterial: {fileID: 0}
+    PetalLevelAngles: []
+    CapitulumRadius: 0
+    CapitulumColor: {r: 0, g: 0, b: 0, a: 0}
+  m_WindStrength: 0.3
+  m_WindSpeed: 0.7
+  m_WindMaxAmplitudeModification: 70
+  m_BlossomingState: 1
+  m_BlossomingRotationRange:
+    Min: 0
+    Max: 120
+  m_HydrationState: 1
+  m_DehydratedColor: {r: 0.77412844, g: 0.93207544, b: 0.13189735, a: 1}
+  m_DehydrationRotationRange:
+    Min: 0
+    Max: 30
+--- !u!1001 &7859114345875009263
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8682967354123566058}
+    m_Modifications:
+    - target: {fileID: 8808214653859070342, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_Name
+      value: flowerpot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3564121177546906650}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+--- !u!4 &1669778096634524489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8808214653859437990, guid: da915fba24b5e3446ba5c23ae9243acc, type: 3}
+  m_PrefabInstance: {fileID: 7859114345875009263}
+  m_PrefabAsset: {fileID: 0}
