@@ -34,7 +34,7 @@ public class FlowerGenerator : MonoBehaviour
 
 	[Range(0, 1)]
 	[SerializeField] public float m_WindStrength = 0.3f;
-	[SerializeField] private float m_WindSpeed = 0.7f;
+	[SerializeField] private Range<float> m_WindSpeedRange;
 	[SerializeField] private float m_WindMaxAmplitudeModification = 70;
 	private float m_WindMaxAmplitudeModificationPerStem;
 
@@ -101,7 +101,7 @@ public class FlowerGenerator : MonoBehaviour
 			leaf.Color = GetRandomColorVariant(m_Flower.LeavesAverageColor);
 			leaf.Position = m_Flower.LeavesPositionRange.RandVal();
 			leaf.RotationAroundStem = Random.Range(0f, 360f);
-			leaf.Rotation = GetRandomRotation();
+			leaf.Rotation = Quaternion.Euler(0, 0, m_Flower.LeavesAverageUpRotation) * GetRandomRotation();
 
 			m_FlowerInstance.Leaves.Add(leaf);
 		}
@@ -115,10 +115,8 @@ public class FlowerGenerator : MonoBehaviour
 		int nbPetalsPerLevel = (nbPetalLevels != 0) ? (nbPetals - 1) / nbPetalLevels + 1 : 0;
 		int totPetals = 0;
 
-		// magic values
-		const float petalLevelAngleAverage = 5f;
-		const float petalLevelAngleDifference = 10f;
-		float minLevelAngle = petalLevelAngleAverage - petalLevelAngleDifference * (nbPetalLevels - 1) * 0.5f;
+		float petalLevelAngleDifference = m_Flower.PetalsMaxDispersionUpRotation * 0.5f;
+		float minLevelAngle = m_Flower.PetalsAverageUpRotation - petalLevelAngleDifference * (nbPetalLevels - 1) * 0.5f;
 		float rotLevelOffset = 360f / nbPetals;
 
 		for(int petalLevelIdx = 0; petalLevelIdx < nbPetalLevels; petalLevelIdx++)
@@ -226,14 +224,17 @@ public class FlowerGenerator : MonoBehaviour
 
 	private void _WindUpdate()
 	{
-		float xRotation = Mathf.PerlinNoise1D(m_FlowerInstance.WindOffset + Time.time * m_WindSpeed) * m_WindStrength * m_WindMaxAmplitudeModificationPerStem;
-		Quaternion windRotation = Quaternion.Euler(xRotation, 0, 0);
-
+		float windSpeed = Mathf.Lerp(m_WindSpeedRange.Min, m_WindSpeedRange.Max, m_WindStrength);
+		int stemPartIdx = 0;
 		foreach((var stemPartData, var stemPart) in m_FlowerInstance.StemParts.Zip(m_Stems, (x, y) => (x, y)))
 		{
+			float xRotation = Mathf.PerlinNoise(m_FlowerInstance.WindOffset + Time.time * windSpeed * stemPartIdx, stemPartIdx) * m_WindStrength * m_WindMaxAmplitudeModificationPerStem;
+			Quaternion windRotation = Quaternion.Euler(xRotation, 0, 0);
 			stemPart.transform.localRotation = Quaternion.identity;
 			stemPart.transform.rotation *= windRotation;
 			stemPart.transform.localRotation *= stemPartData.Rotation;
+
+			stemPartIdx++;
 		}
 	}
 
