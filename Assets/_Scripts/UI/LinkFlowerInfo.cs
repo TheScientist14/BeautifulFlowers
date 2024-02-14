@@ -1,37 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LinkFlowerInfo : MonoBehaviour
 {
+    #region TMP
 
-    // TMP
+    // Attributes
+
     public TextMeshProUGUI FlowerSizeTMP;
     public TextMeshProUGUI StemWidthTMP;
     public TextMeshProUGUI CapitulumWidthTMP;
     public TextMeshProUGUI LeavesNumberTMP;
     public TextMeshProUGUI PetalsNumberTMP;
 
-    // Atributes values
-    private float flowerSize;
-    private float stemWidth;
-    private float capitulumWidth;
-    private int leavesNumber;
-    private int petalsNumber;
 
-    // Flower generator links
+    // Traits
+
+    public TextMeshProUGUI WindStrentghTMP;
+    public TextMeshProUGUI BlossomStateTMP;
+    public TextMeshProUGUI HydratationStateTMP;
+
+    #endregion
+
+    #region Values
+
+    // Attributes values
+
+    private float _flowerSize;
+    private float _stemWidth;
+    private float _capitulumWidth;
+    private int _leavesNumber;
+    private int _petalsNumber;
+
+
+    // Traits values
+
+    private float _windStrength;
+    private float _blossomState;
+    private float _hydrationState;
+
+    #endregion
+
+    #region Flower
+
+    // Flowers links
+
     public FlowerGenerator FGCam1;
     public FlowerGenerator FGCam2;
     public FlowerGenerator FGCam3;
     public FlowerGenerator FGCam4;
     public FlowerGenerator FGCam5;
     public FlowerGenerator FGCam6;
-    public FlowerGenerator ActiveFlower;
+    
+    private FlowerGenerator _activeFlower;
+    private FlowerInstance _flowerInstance;
 
-    private FlowerInstance m_FlowerInstance;
-
+    #endregion
 
     void Start()
     {
@@ -39,49 +67,77 @@ public class LinkFlowerInfo : MonoBehaviour
 
     public void SetAttributes(FlowerGenerator cam)
     {
-        ActiveFlower = cam;
-        m_FlowerInstance = cam.GetFlowerInstance();
+        _activeFlower = cam;
+        _flowerInstance = cam.GetFlowerInstance();
 
-        flowerSize = m_FlowerInstance.TotalStemHeight;
-        stemWidth = m_FlowerInstance.StemRadius * 2;
-        capitulumWidth = m_FlowerInstance.CapitulumRadius * 2;
-        leavesNumber = m_FlowerInstance.Leaves.Count;
-        petalsNumber = m_FlowerInstance.Petals.Count;
+        // Attributes
+        _flowerSize = _flowerInstance.TotalStemHeight;
+        _stemWidth = _flowerInstance.StemRadius * 2;
+        _capitulumWidth = _flowerInstance.CapitulumRadius * 2;
+        _leavesNumber = _flowerInstance.Leaves.Count;
+        _petalsNumber = _flowerInstance.Petals.Count;
 
-        FlowerSizeTMP.text = "Flower Size : " + flowerSize;
-        StemWidthTMP.text = "Stem Width : " + stemWidth;
-        CapitulumWidthTMP.text = "Capitulum width : " + capitulumWidth;
-        LeavesNumberTMP.text = "Leaves number : " + leavesNumber;
-        PetalsNumberTMP.text = "Petals number : " + petalsNumber;
+        _windStrength = cam.m_WindStrength;
+        _blossomState = cam.GetBlossomingState();
+        _hydrationState = cam.GetHydrationState();
+
+        FlowerSizeTMP.text = "Flower Size : " + _flowerSize.ToString("F2");
+        StemWidthTMP.text = "Stem Width : " + _stemWidth.ToString("F2");
+        CapitulumWidthTMP.text = "Capitulum width : " + _capitulumWidth.ToString("F2");
+        LeavesNumberTMP.text = "Leaves number : " + _leavesNumber;
+        PetalsNumberTMP.text = "Petals number : " + _petalsNumber;
     }
 
     public void ChangeActiveFlower(TextMeshProUGUI nameButton)
     {
-        switch (nameButton.ToString())
+        string button = nameButton.text;
+
+        switch (button)
         {
             case "Cam1":
                 SetAttributes(FGCam1);
                 break;
             case "Cam2":
-                SetAttributes(FGCam1);
+                SetAttributes(FGCam2);
                 break;
             case "Cam3":
-                SetAttributes(FGCam1);
+                SetAttributes(FGCam3);
                 break;
             case "Cam4":
-                SetAttributes(FGCam1);
+                SetAttributes(FGCam4);
                 break;
             case "Cam5":
-                SetAttributes(FGCam1);
+                SetAttributes(FGCam5);
                 break;
             case "Cam6":
-                SetAttributes(FGCam1);
+                SetAttributes(FGCam6);
+                break;
+            case null:
                 break;
         }
     }
 
     public void RefreshFlower()
     {
-        ActiveFlower.GenerateSubject();
+        _activeFlower.GenerateSubject();
+        SetAttributes(_activeFlower);
+    }
+
+    public void SliderWindChange(float value)
+    {
+        _activeFlower.m_WindStrength = value;
+        WindStrentghTMP.text = "Wind strentgh : " + value.ToString("F2") + "/1";
+    }
+
+    public void SliderBlossomChange(float value)
+    {
+        _activeFlower.SetBlossomingState(value);
+        BlossomStateTMP.text = "Blossom state : " + value.ToString() + "/1";
+    }
+
+    public void SliderHydratationChange(float value)
+    {
+        _activeFlower.SetHydrationState(value);
+        HydratationStateTMP.text = "Hydratation state : " + value.ToString() + "/1";
     }
 }
