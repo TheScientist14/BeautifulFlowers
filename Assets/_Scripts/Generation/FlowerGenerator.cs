@@ -87,6 +87,12 @@ public class FlowerGenerator : MonoBehaviour
 		_GenerateSubject();
 	}
 
+	public void GenerateSubject(int iSeed)
+	{
+		m_Seed = iSeed;
+		_GenerateSubject();
+	}
+
 	[Button]
 	private void _GenerateSubject()
 	{
@@ -158,6 +164,10 @@ public class FlowerGenerator : MonoBehaviour
 
 		m_FlowerName = m_Names[Random.Range(0, m_Names.Count - 1)];
 		m_SummaryTemplate = m_SummaryTemplates[Random.Range(0, m_SummaryTemplates.Count - 1)];
+
+		m_WindStrength = Random.Range(0, 1);
+		m_HydrationState = Random.Range(0, 1);
+		m_BlossomingState = Random.Range(0, 1);
 
 		Render();
 	}
@@ -337,6 +347,11 @@ public class FlowerGenerator : MonoBehaviour
 			GetClosestString(m_HydrationStartSentence, m_HydrationState),
 			GetClosestString(m_BlossomEndSentence, m_BlossomingState)
 		);
+	}
+
+	public int GetSeed()
+	{
+		return m_Seed;
 	}
 
 	private string GetClosestString(List<string> iStrings, float iParam)
