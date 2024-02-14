@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FlowerSpecies", menuName = "ScriptableObjects/FlowerSpecies")]
 public class Flower : ScriptableObject
 {
+	public string SpeciesName;
 	// Lengths are in cm
 
 	[Header("Stem")]
@@ -21,6 +22,7 @@ public class Flower : ScriptableObject
 	public Material LeavesMaterial;
 	public Range<float> LeavesLengthRange;
 	public Range<float> LeavesWidthRange;
+	public float LeavesAverageUpRotation;
 
 	[Header("Petals")]
 	public Range<int> PetalCountRange;
@@ -29,6 +31,8 @@ public class Flower : ScriptableObject
 	public Range<float> PetalsLengthRange;
 	public Range<float> PetalsWidthRange;
 	public Range<int> PetalsLevelCountRange;
+	public float PetalsAverageUpRotation;
+	public float PetalsMaxDispersionUpRotation;
 
 	[Header("Capitulum")]
 	public Range<float> CapitulumRadiusRange;
