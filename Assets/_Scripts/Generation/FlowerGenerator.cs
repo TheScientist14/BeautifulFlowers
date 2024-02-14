@@ -50,6 +50,23 @@ public class FlowerGenerator : MonoBehaviour
 	private bool m_IsBlossomingDirty = true;
 	private bool m_IsHydrationDirty = true;
 
+	// summary parameters:
+	// species
+	// small -> tall
+	// thin -> thick
+	// hydration
+	// blossoming
+	// wind state
+	[SerializeField] private List<string> m_HeightAdjectives = new List<string>();
+	[SerializeField] private List<string> m_ThicknessAdjectives = new List<string>();
+	[SerializeField] private List<string> m_HydrationStartSentence = new List<string>();
+	[SerializeField] private List<string> m_BlossomEndSentence = new List<string>();
+	[SerializeField] private List<string> m_WindRemarks = new List<string>();
+	[SerializeField] private List<string> m_Names = new List<string>();
+	[SerializeField] private List<string> m_SummaryTemplates = new List<string>();
+	private string m_FlowerName;
+	private string m_SummaryTemplate;
+
 	void Start()
 	{
 		if(m_Flower != null)
@@ -138,6 +155,9 @@ public class FlowerGenerator : MonoBehaviour
 				m_FlowerInstance.Petals.Add(petal);
 			}
 		}
+
+		m_FlowerName = m_Names[Random.Range(0, m_Names.Count - 1)];
+		m_SummaryTemplate = m_SummaryTemplates[Random.Range(0, m_SummaryTemplates.Count - 1)];
 
 		Render();
 	}
@@ -306,7 +326,30 @@ public class FlowerGenerator : MonoBehaviour
 
 	public string GetSummary()
 	{
-		return "This is a placeholder summary\nwith multiple lines...";
+		// named parameters ?
+
+		return string.Format(m_SummaryTemplate,
+			m_FlowerName,
+			GetClosestString(m_HeightAdjectives, ComputeParam(m_Flower.StemHeightRange, m_FlowerInstance.TotalStemHeight)),
+			GetClosestString(m_ThicknessAdjectives, ComputeParam(m_Flower.StemRadiusRange, m_FlowerInstance.StemRadius)),
+			m_Flower.SpeciesName,
+			GetClosestString(m_WindRemarks, m_WindStrength),
+			GetClosestString(m_HydrationStartSentence, m_HydrationState),
+			GetClosestString(m_BlossomEndSentence, m_BlossomingState)
+		);
+	}
+
+	private string GetClosestString(List<string> iStrings, float iParam)
+	{
+		if(iStrings == null || iStrings.Count == 0)
+			return "";
+
+		return iStrings[Mathf.Clamp(0, iStrings.Count, Mathf.FloorToInt(Mathf.Clamp01(iParam) * iStrings.Count))];
+	}
+
+	private float ComputeParam(Range<float> iRange, float iValue)
+	{
+		return Mathf.InverseLerp(iRange.Min, iRange.Max, iValue);
 	}
 
 	private Color GetRandomColorVariant(Color iBaseColor)

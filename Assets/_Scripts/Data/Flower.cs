@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FlowerSpecies", menuName = "ScriptableObjects/FlowerSpecies")]
 public class Flower : ScriptableObject
 {
+	public string SpeciesName;
 	// Lengths are in cm
 
 	[Header("Stem")]

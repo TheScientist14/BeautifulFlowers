@@ -195,10 +195,59 @@ MonoBehaviour:
     Min: 0
     Max: 120
   m_HydrationState: 1
-  m_DehydratedColor: {r: 0.77412844, g: 0.93207544, b: 0.13189735, a: 1}
+  m_DehydratedColor: {r: 0.8750534, g: 0.9622642, b: 0.5283374, a: 1}
   m_DehydrationRotationRange:
     Min: 0
-    Max: 30
+    Max: 40
+  m_HeightAdjectives:
+  - tiny
+  - small
+  - average
+  - average
+  - tall
+  - gigantic
+  m_ThicknessAdjectives:
+  - 'thin '
+  - 
+  - 'nicely proportioned '
+  - 
+  - 'thick '
+  m_HydrationStartSentence:
+  - I'm dying of thirst
+  - My stem is really dry
+  - I wouldn't say no to some rain
+  - I am well-watered
+  - I am not missing water
+  m_BlossomEndSentence:
+  - my bud still hasn't come out.
+  - the bud has started to come out.
+  - the flower will soon be bloomed.
+  - I am fully blomed.
+  m_WindRemarks:
+  - No wind to fight with.
+  - A light breeze is running.
+  - The wind is gently blowing.
+  - I feel like a storm is brewing.
+  - It's really windy over here!
+  - The wind is blowing so strongly that my vision is blurred.
+  - Holy! If I were a tree, I would most likely have uprooted!
+  m_Names:
+  - Flora
+  - Daisy
+  - Rosa
+  - Primrose
+  - Jasmine
+  - Buttercup
+  - Lily
+  - Violet
+  - Marguerite
+  - Iris
+  m_SummaryTemplates:
+  - Hey! I'm {0}, a {1} {2}{3}.\n{4}\n{5}, {6}
+  - '{4}\nOh, I didn''t see you, greetings! My name is {0}, the {2}{3}. I am so {1}.\n{5}
+    and {6}'
+  - Look at that peasant... Why are you looking at me, uh? I'm the {1} {2}{3} {0}.\nDon't
+    ever think of touching me.\n{5}, plus {6}\n{4}
 --- !u!1001 &7859114345875009263
 PrefabInstance:
   m_ObjectHideFlags: 0
