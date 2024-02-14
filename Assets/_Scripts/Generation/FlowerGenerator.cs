@@ -323,4 +323,9 @@ public class FlowerGenerator : MonoBehaviour
 				Random.Range(-s_RotationTol.y, s_RotationTol.y),
 				Random.Range(-s_RotationTol.z, s_RotationTol.z));
 	}
+
+	public FlowerInstance GetFlowerInstance()
+	{
+		return m_FlowerInstance;
+	}
 }
