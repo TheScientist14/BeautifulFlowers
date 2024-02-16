@@ -5568,6 +5568,9 @@ MonoBehaviour:
   WindStrentghTMP: {fileID: 1811783215}
   BlossomStateTMP: {fileID: 2084276804}
   HydratationStateTMP: {fileID: 2048689864}
+  WindSlider: {fileID: 570678103}
+  BlossomSlider: {fileID: 1057805830}
+  HydrationSlider: {fileID: 1757649051}
   FGCam1: {fileID: 2903162650089041882}
   FGCam2: {fileID: 1221503527}
   FGCam3: {fileID: 226353274}
@@ -6252,7 +6255,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1402665959}
         m_TargetAssemblyTypeName: LinkFlowerInfo, Assembly-CSharp
-        m_MethodName: SliderHydratationChange
+        m_MethodName: SliderHydrationChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6320,7 +6323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wind
+  m_text: 'Wind strenght : 0%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7641,7 +7644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hydratation
+  m_text: 'Hydration state : 0%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7776,7 +7779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bloom
+  m_text: 'Bloom state : 0%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
