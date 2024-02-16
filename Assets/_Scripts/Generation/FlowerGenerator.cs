@@ -359,7 +359,9 @@ public class FlowerGenerator : MonoBehaviour
 		if(iStrings == null || iStrings.Count == 0)
 			return "";
 
-		return iStrings[Mathf.Clamp(0, iStrings.Count, Mathf.FloorToInt(Mathf.Clamp01(iParam) * iStrings.Count))];
+		return iStrings[Mathf.Clamp(0,
+			iStrings.Count,
+			Mathf.FloorToInt(Mathf.Clamp01(iParam) * iStrings.Count))];
 	}
 
 	private float ComputeParam(Range<float> iRange, float iValue)

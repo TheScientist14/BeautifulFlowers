@@ -24,6 +24,11 @@ public class LinkFlowerInfo : MonoBehaviour
     public TextMeshProUGUI BlossomStateTMP;
     public TextMeshProUGUI HydratationStateTMP;
 
+
+    // Summary
+
+    public TextMeshProUGUI Summary;
+
     #endregion
 
     #region Values
@@ -42,6 +47,14 @@ public class LinkFlowerInfo : MonoBehaviour
     private float _windStrength;
     private float _blossomState;
     private float _hydrationState;
+
+    public Slider WindSlider;
+    public Slider BlossomSlider;
+    public Slider HydrationSlider;
+
+
+    // Summary
+    private string _summary;
 
     #endregion
 
@@ -63,6 +76,7 @@ public class LinkFlowerInfo : MonoBehaviour
 
     void Start()
     {
+        //SetAttributes(FGCam1);
     }
 
     public void SetAttributes(FlowerGenerator cam)
@@ -77,15 +91,25 @@ public class LinkFlowerInfo : MonoBehaviour
         _leavesNumber = _flowerInstance.Leaves.Count;
         _petalsNumber = _flowerInstance.Petals.Count;
 
-        _windStrength = cam.m_WindStrength;
-        _blossomState = cam.GetBlossomingState();
-        _hydrationState = cam.GetHydrationState();
-
         FlowerSizeTMP.text = "Flower Size : " + _flowerSize.ToString("F2");
         StemWidthTMP.text = "Stem Width : " + _stemWidth.ToString("F2");
         CapitulumWidthTMP.text = "Capitulum width : " + _capitulumWidth.ToString("F2");
         LeavesNumberTMP.text = "Leaves number : " + _leavesNumber;
         PetalsNumberTMP.text = "Petals number : " + _petalsNumber;
+
+        // Traits
+        _windStrength = _activeFlower.m_WindStrength;
+        _blossomState = _activeFlower.GetBlossomingState();
+        _hydrationState = _activeFlower.GetHydrationState();
+
+        WindSlider.value = _windStrength;
+        BlossomSlider.value = _blossomState;
+        HydrationSlider.value = _hydrationState;
+
+        // Summary
+        _summary = _activeFlower.GetSummary();
+
+        Summary.text = _summary;
     }
 
     public void ChangeActiveFlower(TextMeshProUGUI nameButton)
@@ -126,18 +150,21 @@ public class LinkFlowerInfo : MonoBehaviour
     public void SliderWindChange(float value)
     {
         _activeFlower.m_WindStrength = value;
-        WindStrentghTMP.text = "Wind strentgh : " + value.ToString("F2") + "/1";
+        value *= 100;
+        WindStrentghTMP.text = "Wind strentgh : " + value.ToString("F0") + "%";
     }
 
     public void SliderBlossomChange(float value)
     {
         _activeFlower.SetBlossomingState(value);
-        BlossomStateTMP.text = "Blossom state : " + value.ToString() + "/1";
+        value *= 100;
+        BlossomStateTMP.text = "Blossom state : " + value.ToString("F0") + "%";
     }
 
-    public void SliderHydratationChange(float value)
+    public void SliderHydrationChange(float value)
     {
         _activeFlower.SetHydrationState(value);
-        HydratationStateTMP.text = "Hydratation state : " + value.ToString() + "/1";
+        value *= 100;
+        HydratationStateTMP.text = "Hydratation state : " + value.ToString("F0") + "%";
     }
 }
