@@ -258,8 +258,8 @@ public class FlowerGenerator : MonoBehaviour
 		int stemPartIdx = 0;
 		foreach((var stemPartData, var stemPart) in m_FlowerInstance.StemParts.Zip(m_Stems, (x, y) => (x, y)))
 		{
-			float xRotation = Mathf.PerlinNoise(m_FlowerInstance.WindOffset + Time.time * windSpeed * stemPartIdx, stemPartIdx) * m_WindStrength * m_WindMaxAmplitudeModificationPerStem;
-			Quaternion windRotation = Quaternion.Euler(xRotation, 0, 0);
+			float zRotation = Mathf.PerlinNoise(m_FlowerInstance.WindOffset + Time.time * windSpeed * stemPartIdx, stemPartIdx) * m_WindStrength * m_WindMaxAmplitudeModificationPerStem;
+			Quaternion windRotation = Quaternion.Euler(0, 0, zRotation);
 			stemPart.transform.localRotation = Quaternion.identity;
 			stemPart.transform.rotation *= windRotation;
 			stemPart.transform.localRotation *= stemPartData.Rotation;
