@@ -67,7 +67,7 @@ public class FlowerGenerator : MonoBehaviour
 	private string m_FlowerName;
 	private string m_SummaryTemplate;
 
-	void Start()
+	void Awake()
 	{
 		if(m_Flower != null)
 			GenerateSubject();
@@ -165,9 +165,9 @@ public class FlowerGenerator : MonoBehaviour
 		m_FlowerName = m_Names[Random.Range(0, m_Names.Count - 1)];
 		m_SummaryTemplate = m_SummaryTemplates[Random.Range(0, m_SummaryTemplates.Count - 1)];
 
-		m_WindStrength = Random.Range(0, 1);
-		m_HydrationState = Random.Range(0, 1);
-		m_BlossomingState = Random.Range(0, 1);
+		m_WindStrength = Random.Range(0f, 1f);
+		m_HydrationState = Random.Range(0f, 1f);
+		m_BlossomingState = Random.Range(0f, 1f);
 
 		Render();
 	}
@@ -397,5 +397,10 @@ public class FlowerGenerator : MonoBehaviour
 	public FlowerInstance GetFlowerInstance()
 	{
 		return m_FlowerInstance;
+	}
+
+	public Flower GetFlower()
+	{
+		return m_Flower;
 	}
 }
