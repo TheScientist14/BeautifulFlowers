@@ -236,6 +236,17 @@ public class FlowerGenerator : MonoBehaviour
 
 			m_Petals.Add(petal);
 		}
+
+		Stack<Transform> childrenToProcess = new Stack<Transform>();
+		childrenToProcess.Push(transform);
+		while(childrenToProcess.Count > 0)
+		{
+			Transform child = childrenToProcess.Pop();
+			child.gameObject.layer = gameObject.layer;
+
+			foreach(Transform subChild in child)
+				childrenToProcess.Push(subChild);
+		}
 	}
 
 	void Update()
