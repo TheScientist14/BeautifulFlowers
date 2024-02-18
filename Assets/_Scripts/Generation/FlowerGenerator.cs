@@ -236,6 +236,17 @@ public class FlowerGenerator : MonoBehaviour
 
 			m_Petals.Add(petal);
 		}
+
+		Stack<Transform> childrenToProcess = new Stack<Transform>();
+		childrenToProcess.Push(transform);
+		while(childrenToProcess.Count > 0)
+		{
+			Transform child = childrenToProcess.Pop();
+			child.gameObject.layer = gameObject.layer;
+
+			foreach(Transform subChild in child)
+				childrenToProcess.Push(subChild);
+		}
 	}
 
 	void Update()
@@ -358,10 +369,7 @@ public class FlowerGenerator : MonoBehaviour
 	{
 		if(iStrings == null || iStrings.Count == 0)
 			return "";
-
-		return iStrings[Mathf.Clamp(0,
-			iStrings.Count,
-			Mathf.FloorToInt(Mathf.Clamp01(iParam) * iStrings.Count))];
+		return iStrings[Mathf.Clamp(Mathf.FloorToInt(Mathf.Clamp01(iParam) * iStrings.Count), 0, iStrings.Count - 1)];
 	}
 
 	private float ComputeParam(Range<float> iRange, float iValue)
