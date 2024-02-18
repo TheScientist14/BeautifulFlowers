@@ -104,7 +104,7 @@ public class FlowerGenerator : MonoBehaviour
 		m_FlowerInstance.TotalStemHeight = m_Flower.StemHeightRange.RandVal();
 		m_FlowerInstance.StemRadius = m_Flower.StemRadiusRange.RandVal();
 		m_FlowerInstance.StemColor = GetRandomColorVariant(m_Flower.StemAverageColor);
-		int stemPartNumber = Mathf.FloorToInt(m_FlowerInstance.TotalStemHeight);
+		int stemPartNumber = Mathf.Min(Mathf.FloorToInt(m_FlowerInstance.TotalStemHeight), 20);
 		for(int stemPartIdx = 0; stemPartIdx < stemPartNumber; stemPartIdx++)
 		{
 			FlowerInstance.StemPart stemPart = new FlowerInstance.StemPart();

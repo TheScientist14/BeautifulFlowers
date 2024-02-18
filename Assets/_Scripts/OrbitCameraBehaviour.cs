@@ -34,8 +34,8 @@ public class OrbitCameraBehaviour : MonoBehaviour
 		if(!m_Target)
 			return;
 
-		m_Distance -= Input.GetAxis("Mouse ScrollWheel") * 5;
-		m_Distance = Mathf.Clamp(m_Distance, 2, 40);
+		m_Distance -= Input.GetAxis("Mouse ScrollWheel") * 10;
+		m_Distance = Mathf.Clamp(m_Distance, 2, 300);
 
 		if(Input.GetMouseButton(1))
 		{

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38223127, g: 0.4688933, b: 0.61398077, a: 1}
+  m_IndirectSpecularColor: {r: 0.38149974, g: 0.46815968, b: 0.6131704, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1578,7 +1578,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393066818
 MonoBehaviour:
@@ -2361,7 +2361,7 @@ PrefabInstance:
     - target: {fileID: 6088682733873068684, guid: 62a2a7faee3cd5b4bbde5cd7d9bbfc08, type: 3}
       propertyPath: m_Flower
       value: 
-      objectReference: {fileID: 11400000, guid: b780a7db7d093104cba4dfe76b6a1a93, type: 2}
+      objectReference: {fileID: 11400000, guid: fee8bab6dbd558441a3415da03e7a11b, type: 2}
     - target: {fileID: 7934718508679924703, guid: 62a2a7faee3cd5b4bbde5cd7d9bbfc08, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -2756,7 +2756,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720033243}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -4362,8 +4362,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6156,8 +6156,11 @@ MonoBehaviour:
   FGCam5: {fileID: 1660182666}
   FGCam6: {fileID: 660362593}
   FlowerSpecies:
+  - {fileID: 11400000, guid: f59429c697893de4ca3efab20d1021ba, type: 2}
   - {fileID: 11400000, guid: b780a7db7d093104cba4dfe76b6a1a93, type: 2}
+  - {fileID: 11400000, guid: fee8bab6dbd558441a3415da03e7a11b, type: 2}
   - {fileID: 11400000, guid: fffcb2f9883912447a0a06b6de192056, type: 2}
+  - {fileID: 11400000, guid: 38b5e55eb869c8b488e77700fdfa8d9f, type: 2}
   - {fileID: 11400000, guid: a25d487084db7f14da7ac52526c7293a, type: 2}
 --- !u!1 &1410433721
 GameObject:
@@ -6743,7 +6746,7 @@ PrefabInstance:
     - target: {fileID: 6088682733873068684, guid: 62a2a7faee3cd5b4bbde5cd7d9bbfc08, type: 3}
       propertyPath: m_Flower
       value: 
-      objectReference: {fileID: 11400000, guid: b780a7db7d093104cba4dfe76b6a1a93, type: 2}
+      objectReference: {fileID: 11400000, guid: f59429c697893de4ca3efab20d1021ba, type: 2}
     - target: {fileID: 7934718508679924703, guid: 62a2a7faee3cd5b4bbde5cd7d9bbfc08, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -7432,7 +7435,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 420, y: -50}
-  m_SizeDelta: {x: 60, y: 50}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1897621782
 MonoBehaviour:
@@ -7510,8 +7513,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: f22a764c2ea548b45b2f1f51a1aa4d13, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7551,7 +7554,7 @@ PrefabInstance:
     - target: {fileID: 6088682733873068684, guid: 62a2a7faee3cd5b4bbde5cd7d9bbfc08, type: 3}
       propertyPath: m_Flower
       value: 
-      objectReference: {fileID: 11400000, guid: b780a7db7d093104cba4dfe76b6a1a93, type: 2}
+      objectReference: {fileID: 11400000, guid: 38b5e55eb869c8b488e77700fdfa8d9f, type: 2}
     - target: {fileID: 7934718508679924703, guid: 62a2a7faee3cd5b4bbde5cd7d9bbfc08, type: 3}
       propertyPath: m_Layer
       value: 9

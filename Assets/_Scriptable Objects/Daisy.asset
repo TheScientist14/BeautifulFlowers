@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955d401f22a74f54f8f1452e1a479de7, type: 3}
   m_Name: Daisy
   m_EditorClassIdentifier: 
-  SpeciesName: 
+  SpeciesName: daisy
   StemHeightRange:
     Min: 0
     Max: 0

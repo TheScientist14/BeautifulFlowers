@@ -12,46 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955d401f22a74f54f8f1452e1a479de7, type: 3}
   m_Name: Sunflower
   m_EditorClassIdentifier: 
-  SpeciesName: 
+  SpeciesName: sunflower
   StemHeightRange:
-    Min: 0
-    Max: 0
+    Min: 100
+    Max: 150
   StemRadiusRange:
-    Min: 0
-    Max: 0
-  StemAverageColor: {r: 0, g: 0, b: 0, a: 0}
+    Min: 1.5
+    Max: 3
+  StemAverageColor: {r: 0.5303333, g: 0.8415094, b: 0, a: 1}
   LeavesPositionRange:
-    Min: 0
-    Max: 0
+    Min: 0.2
+    Max: 0.9
   LeafCountRange:
-    Min: 0
-    Max: 0
-  LeavesAverageColor: {r: 0, g: 0, b: 0, a: 0}
-  LeavesMaterial: {fileID: 0}
+    Min: 10
+    Max: 15
+  LeavesAverageColor: {r: 0.18256809, g: 0.7207546, b: 0.11287284, a: 1}
+  LeavesMaterial: {fileID: 2100000, guid: 9cf6eb2c2946d2a4595bc2b5382ed8fd, type: 2}
   LeavesLengthRange:
-    Min: 0
-    Max: 0
+    Min: 15
+    Max: 20
   LeavesWidthRange:
-    Min: 0
-    Max: 0
-  LeavesAverageUpRotation: 0
+    Min: 7
+    Max: 10
+  LeavesAverageUpRotation: 10
   PetalCountRange:
-    Min: 0
-    Max: 0
-  PetalsAverageColor: {r: 0, g: 0, b: 0, a: 0}
-  PetalsMaterial: {fileID: 0}
+    Min: 60
+    Max: 80
+  PetalsAverageColor: {r: 1, g: 0.9536621, b: 0.1566037, a: 1}
+  PetalsMaterial: {fileID: 2100000, guid: c4040faa0ea726d4082186ba782fd578, type: 2}
   PetalsLengthRange:
-    Min: 0
-    Max: 0
+    Min: 6
+    Max: 7
   PetalsWidthRange:
-    Min: 0
-    Max: 0
+    Min: 1.8
+    Max: 2.3
   PetalsLevelCountRange:
-    Min: 0
-    Max: 0
-  PetalsAverageUpRotation: 0
-  PetalsMaxDispersionUpRotation: 0
+    Min: 2
+    Max: 3
+  PetalsAverageUpRotation: 2
+  PetalsMaxDispersionUpRotation: 2
   CapitulumRadiusRange:
-    Min: 0
-    Max: 0
-  CapitulumAverageColor: {r: 0, g: 0, b: 0, a: 0}
+    Min: 7
+    Max: 10
+  CapitulumAverageColor: {r: 0.17735851, g: 0.114362784, b: 0.093364194, a: 1}
