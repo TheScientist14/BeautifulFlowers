@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955d401f22a74f54f8f1452e1a479de7, type: 3}
+  m_Name: Sunflower
+  m_EditorClassIdentifier: 
+  SpeciesName: sunflower
+  StemHeightRange:
+    Min: 100
+    Max: 150
+  StemRadiusRange:
+    Min: 1.5
+    Max: 3
+  StemAverageColor: {r: 0.5303333, g: 0.8415094, b: 0, a: 1}
+  LeavesPositionRange:
+    Min: 0.2
+    Max: 0.9
+  LeafCountRange:
+    Min: 10
+    Max: 15
+  LeavesAverageColor: {r: 0.18256809, g: 0.7207546, b: 0.11287284, a: 1}
+  LeavesMaterial: {fileID: 2100000, guid: 9cf6eb2c2946d2a4595bc2b5382ed8fd, type: 2}
+  LeavesLengthRange:
+    Min: 15
+    Max: 20
+  LeavesWidthRange:
+    Min: 7
+    Max: 10
+  LeavesAverageUpRotation: 10
+  PetalCountRange:
+    Min: 60
+    Max: 80
+  PetalsAverageColor: {r: 1, g: 0.9536621, b: 0.1566037, a: 1}
+  PetalsMaterial: {fileID: 2100000, guid: c4040faa0ea726d4082186ba782fd578, type: 2}
+  PetalsLengthRange:
+    Min: 6
+    Max: 7
+  PetalsWidthRange:
+    Min: 1.8
+    Max: 2.3
+  PetalsLevelCountRange:
+    Min: 2
+    Max: 3
+  PetalsAverageUpRotation: 2
+  PetalsMaxDispersionUpRotation: 2
+  CapitulumRadiusRange:
+    Min: 7
+    Max: 10
+  CapitulumAverageColor: {r: 0.17735851, g: 0.114362784, b: 0.093364194, a: 1}

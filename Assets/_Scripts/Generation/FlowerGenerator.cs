@@ -67,7 +67,7 @@ public class FlowerGenerator : MonoBehaviour
 	private string m_FlowerName;
 	private string m_SummaryTemplate;
 
-	void Start()
+	void Awake()
 	{
 		if(m_Flower != null)
 			GenerateSubject();
@@ -104,7 +104,7 @@ public class FlowerGenerator : MonoBehaviour
 		m_FlowerInstance.TotalStemHeight = m_Flower.StemHeightRange.RandVal();
 		m_FlowerInstance.StemRadius = m_Flower.StemRadiusRange.RandVal();
 		m_FlowerInstance.StemColor = GetRandomColorVariant(m_Flower.StemAverageColor);
-		int stemPartNumber = Mathf.FloorToInt(m_FlowerInstance.TotalStemHeight);
+		int stemPartNumber = Mathf.Min(Mathf.FloorToInt(m_FlowerInstance.TotalStemHeight), 20);
 		for(int stemPartIdx = 0; stemPartIdx < stemPartNumber; stemPartIdx++)
 		{
 			FlowerInstance.StemPart stemPart = new FlowerInstance.StemPart();
@@ -165,9 +165,9 @@ public class FlowerGenerator : MonoBehaviour
 		m_FlowerName = m_Names[Random.Range(0, m_Names.Count - 1)];
 		m_SummaryTemplate = m_SummaryTemplates[Random.Range(0, m_SummaryTemplates.Count - 1)];
 
-		m_WindStrength = Random.Range(0, 1);
-		m_HydrationState = Random.Range(0, 1);
-		m_BlossomingState = Random.Range(0, 1);
+		m_WindStrength = Random.Range(0f, 1f);
+		m_HydrationState = Random.Range(0f, 1f);
+		m_BlossomingState = Random.Range(0f, 1f);
 
 		Render();
 	}
@@ -396,5 +396,10 @@ public class FlowerGenerator : MonoBehaviour
 	public FlowerInstance GetFlowerInstance()
 	{
 		return m_FlowerInstance;
+	}
+
+	public Flower GetFlower()
+	{
+		return m_Flower;
 	}
 }

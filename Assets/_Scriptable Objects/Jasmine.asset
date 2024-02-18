@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955d401f22a74f54f8f1452e1a479de7, type: 3}
+  m_Name: Jasmine
+  m_EditorClassIdentifier: 
+  SpeciesName: jasmine
+  StemHeightRange:
+    Min: 0
+    Max: 0
+  StemRadiusRange:
+    Min: 0
+    Max: 0
+  StemAverageColor: {r: 0, g: 0, b: 0, a: 0}
+  LeavesPositionRange:
+    Min: 0
+    Max: 0
+  LeafCountRange:
+    Min: 0
+    Max: 0
+  LeavesAverageColor: {r: 0, g: 0, b: 0, a: 0}
+  LeavesMaterial: {fileID: 0}
+  LeavesLengthRange:
+    Min: 0
+    Max: 0
+  LeavesWidthRange:
+    Min: 0
+    Max: 0
+  LeavesAverageUpRotation: 0
+  PetalCountRange:
+    Min: 0
+    Max: 0
+  PetalsAverageColor: {r: 0, g: 0, b: 0, a: 0}
+  PetalsMaterial: {fileID: 0}
+  PetalsLengthRange:
+    Min: 0
+    Max: 0
+  PetalsWidthRange:
+    Min: 0
+    Max: 0
+  PetalsLevelCountRange:
+    Min: 0
+    Max: 0
+  PetalsAverageUpRotation: 0
+  PetalsMaxDispersionUpRotation: 0
+  CapitulumRadiusRange:
+    Min: 0
+    Max: 0
+  CapitulumAverageColor: {r: 0, g: 0, b: 0, a: 0}

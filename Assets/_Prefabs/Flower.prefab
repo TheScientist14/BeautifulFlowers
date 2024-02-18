@@ -225,7 +225,7 @@ MonoBehaviour:
   m_BlossomingState: 1
   m_BlossomingRotationRange:
     Min: 0
-    Max: 120
+    Max: 80
   m_HydrationState: 1
   m_DehydratedColor: {r: 0.8750534, g: 0.9622642, b: 0.5283374, a: 1}
   m_DehydrationRotationRange:
@@ -275,11 +275,11 @@ MonoBehaviour:
   - Marguerite
   - Iris
   m_SummaryTemplates:
-  - Hey! I'm {0}, a {1} {2}{3}.\n{4}\n{5}, {6}
-  - '{4}\nOh, I didn''t see you, greetings! My name is {0}, the {2}{3}. I am so {1}.\n{5}
-    and {6}'
-  - Look at that peasant... Why are you looking at me, uh? I'm the {1} {2}{3} {0}.\nDon't
-    ever think of touching me.\n{5}, plus {6}\n{4}
+  - Hey! I'm {0}, a {1} {2}{3}.<br>{4}<br>{5}, {6}
+  - '{4}<br>Oh, I didn''t see you, greetings! My name is {0}, the {2}{3}. I am so
+    {1}.<br>{5} and {6}'
+  - Look at that peasant... Why are you looking at me, uh? I'm the {1} {2}{3} {0}.<br>Don't
+    ever think of touching me.<br>{5}, plus {6}<br>{4}
 --- !u!1001 &7859114345875009263
 PrefabInstance:
   m_ObjectHideFlags: 0
