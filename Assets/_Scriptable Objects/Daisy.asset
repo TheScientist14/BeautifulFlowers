@@ -14,44 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeciesName: daisy
   StemHeightRange:
-    Min: 0
-    Max: 0
+    Min: 40
+    Max: 50
   StemRadiusRange:
-    Min: 0
-    Max: 0
-  StemAverageColor: {r: 0, g: 0, b: 0, a: 0}
+    Min: 0.1
+    Max: 0.15
+  StemAverageColor: {r: 0.61158854, g: 0.8867924, b: 0.3998932, a: 1}
   LeavesPositionRange:
-    Min: 0
-    Max: 0
+    Min: 0.1
+    Max: 0.9
   LeafCountRange:
-    Min: 0
-    Max: 0
-  LeavesAverageColor: {r: 0, g: 0, b: 0, a: 0}
-  LeavesMaterial: {fileID: 0}
+    Min: 7
+    Max: 10
+  LeavesAverageColor: {r: 0.24132697, g: 0.79622644, b: 0.14271975, a: 1}
+  LeavesMaterial: {fileID: 2100000, guid: 9cf6eb2c2946d2a4595bc2b5382ed8fd, type: 2}
   LeavesLengthRange:
-    Min: 0
-    Max: 0
+    Min: 2
+    Max: 3
   LeavesWidthRange:
-    Min: 0
-    Max: 0
-  LeavesAverageUpRotation: 0
+    Min: 1
+    Max: 1.5
+  LeavesAverageUpRotation: 50
   PetalCountRange:
-    Min: 0
-    Max: 0
-  PetalsAverageColor: {r: 0, g: 0, b: 0, a: 0}
-  PetalsMaterial: {fileID: 0}
+    Min: 20
+    Max: 25
+  PetalsAverageColor: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
+  PetalsMaterial: {fileID: 2100000, guid: c4040faa0ea726d4082186ba782fd578, type: 2}
   PetalsLengthRange:
-    Min: 0
-    Max: 0
+    Min: 1.8
+    Max: 2.2
   PetalsWidthRange:
-    Min: 0
-    Max: 0
+    Min: 0.6
+    Max: 0.8
   PetalsLevelCountRange:
-    Min: 0
-    Max: 0
-  PetalsAverageUpRotation: 0
-  PetalsMaxDispersionUpRotation: 0
+    Min: 2
+    Max: 2
+  PetalsAverageUpRotation: 5
+  PetalsMaxDispersionUpRotation: 1
   CapitulumRadiusRange:
-    Min: 0
-    Max: 0
-  CapitulumAverageColor: {r: 0, g: 0, b: 0, a: 0}
+    Min: 1
+    Max: 1.5
+  CapitulumAverageColor: {r: 0.9924528, g: 0.8401599, b: 0.080519676, a: 1}

@@ -225,7 +225,7 @@ MonoBehaviour:
   m_BlossomingState: 1
   m_BlossomingRotationRange:
     Min: 0
-    Max: 80
+    Max: 90
   m_HydrationState: 1
   m_DehydratedColor: {r: 0.8750534, g: 0.9622642, b: 0.5283374, a: 1}
   m_DehydrationRotationRange:
@@ -254,7 +254,7 @@ MonoBehaviour:
   - my bud still hasn't come out.
   - the bud has started to come out.
   - the flower will soon be bloomed.
-  - I am fully blomed.
+  - I am fully bloomed.
   m_WindRemarks:
   - No wind to fight with.
   - A light breeze is running.

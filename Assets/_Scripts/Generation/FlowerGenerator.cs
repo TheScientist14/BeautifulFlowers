@@ -286,7 +286,7 @@ public class FlowerGenerator : MonoBehaviour
 
 		m_IsBlossomingDirty = false;
 
-		Quaternion blossomingRotation = Quaternion.Euler(0, 0, Mathf.Lerp(m_BlossomingRotationRange.Max, m_BlossomingRotationRange.Min, m_BlossomingState));
+		Quaternion blossomingRotation = Quaternion.Euler(0, 0, Mathf.Lerp(m_BlossomingRotationRange.Max - m_Flower.PetalsAverageUpRotation, m_BlossomingRotationRange.Min, m_BlossomingState));
 		foreach((var petalData, var petal) in m_FlowerInstance.Petals.Zip(m_Petals, (x, y) => (x, y)))
 			petal.SetRotation(blossomingRotation * Quaternion.Euler(0, 0, m_FlowerInstance.PetalLevelAngles[petalData.LevelIndex]) * petalData.Rotation);
 	}
